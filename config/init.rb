@@ -46,15 +46,15 @@ $KCODE = 'UTF8'
 # These are a few, but not all, of the standard merb-more dependencies:
 #
 # dependency "merb-action-args"   # Provides support for querystring arguments to be passed in to controller actions
-# dependency "merb-assets"        # Provides link_to, asset_path, auto_link, image_tag methods (and lots more)
+dependency "merb-assets"        # Provides link_to, asset_path, auto_link, image_tag methods (and lots more)
 # dependency "merb-cache"         # Provides your application with caching functions 
-# dependency "merb-haml"          # Adds rake tasks and the haml generators to your merb app
+dependency "merb-haml"          # Adds rake tasks and the haml generators to your merb app
+dependency "merb-helpers"           # Provides the form, date/time, and other helpers
 # dependency "merb-jquery"        # Provides a #jquery method to insert jQuery code in to a content block
 # dependency "merb-mailer"        # Integrates mail support via Merb Mailer
 
 # These are a few, but not all, of the merb-plugin dependencies:
 #
-# dependency "merb_helpers"           # Provides the form, date/time, and other helpers
 # dependency "merb_param_protection"  # Lets you have better control over your query string params and param logging
 # dependency "merb_stories"           # Provides rspec helper methods for your application
 
@@ -68,6 +68,10 @@ $KCODE = 'UTF8'
 
 # Specify more than one dependency at a time as well as the version:
 # dependencies "RedCloth" => "> 3.0", "BlueCloth" => "= 1.0.0"
+
+dependency "dm-aggregates"
+dependency "dm-timestamps"
+dependency "dm-validations"
 
 # You can also add in dependencies after your application loads.
 Merb::BootLoader.after_app_loads do
@@ -85,7 +89,7 @@ end
 # if you need a database.
 
 # Uncomment for DataMapper ORM
-# use_orm :datamapper
+use_orm :datamapper
 
 # Uncomment for ActiveRecord ORM
 # use_orm :activerecord
@@ -115,8 +119,8 @@ use_test :rspec
 
 # Merb can generate views for different template engines, choose your favourite as the default.
 
-use_template_engine :erb
-# use_template_engine :haml
+# use_template_engine :erb
+use_template_engine :haml
 
 
 #
