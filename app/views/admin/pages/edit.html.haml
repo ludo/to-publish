@@ -1,0 +1,15 @@
+%h1
+  Pages controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/pages/edit.html.erb
+= error_messages_for :page
+
+= form_for(@page, :action => url(:page, @page)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', url(:page, @page)
+|
+= link_to 'Back', url(:pages)

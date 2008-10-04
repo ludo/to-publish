@@ -1,0 +1,16 @@
+%h1
+  Pages controller, index action
+%p
+  Edit this file in
+  %tt
+    app/views/pages/index.html.erb
+%table
+  %tr
+  - for page in @pages
+    %tr
+      %td
+        = link_to 'Show', url(:page, page)
+      %td
+        = link_to 'Edit', url(:edit_page,  page)
+
+= link_to 'New', url(:new_page)
