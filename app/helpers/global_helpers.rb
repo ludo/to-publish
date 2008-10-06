@@ -46,7 +46,7 @@ module Merb
       def menu_items
         {
           :articles => {
-            :content => link_to("Articles", url(:admin_pages)),
+            :content => link_to("Articles", url(:admin_articles)),
             :position => 1
           },
           :pages => {

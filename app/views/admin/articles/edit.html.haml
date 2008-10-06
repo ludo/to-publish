@@ -1,0 +1,12 @@
+- title "Edit Article"
+- menu :articles
+
+%h2 edit article
+
+= error_messages_for :article
+
+= form_for @article, :action => url(:admin_article, @article) do
+  = partial :form
+  = submit "Update"
+  or
+  = link_to "cancel", url(:admin_articles)

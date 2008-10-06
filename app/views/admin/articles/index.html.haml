@@ -1,0 +1,14 @@
+- title "Articles"
+- menu :articles
+
+.actions
+  %h2 
+    published
+    %small== (#{link_to "new", url(:new_admin_article)})
+  %ul= partial :article, :with => @articles
+
+.completed.actions
+  %h2 drafts
+  %ul= partial :article, :with => Article.drafts
+
+%script{:type => "text/javascript"}= partial "admin/shared/toggle", :format => :js

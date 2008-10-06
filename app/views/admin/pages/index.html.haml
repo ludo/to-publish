@@ -3,12 +3,8 @@
 
 .actions
   %h2 
-    published
+    pages
     %small== (#{link_to "new", url(:new_admin_page)})
   %ul= partial :page, :with => @pages
-
-.completed.actions
-  %h2 drafts
-  %ul= partial :page, :with => Page.drafts
 
 %script{:type => "text/javascript"}= partial "admin/shared/toggle", :format => :js

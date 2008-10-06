@@ -43,6 +43,41 @@ end
 describe Article do
   include ArticleSpecHelper
   
+  describe "properties" do
+    describe "with a body" do
+      before(:each) do
+        @article = Article.new(valid_properties.merge(:body => "Not in summary. <summary>Summary.</summary> And something else."))
+      end
+
+      it "should be valid" do
+        @article.should be_valid
+      end
+
+      it "should produce a summary if possible" do
+        @article.summary?.should == true
+        @article.summary.should == "Summary."
+      end
+
+      it "should not produce a summary when not available" do
+        @article.body = "<p>Something without summary tags.</p>"
+        @article.summary?.should == false
+        @article.summary.should == nil
+      end
+
+      it "without <summary> should not produce a summary" do
+        @article.body = "<p>Something with the end tag for a summary, but without the start tag: </summary></p>"
+        @article.summary?.should == false
+        @article.summary.should == nil
+      end
+
+      it "without </summary> should not produce a summary" do
+        @article.body = "<p>Something with a start tag for a summary, but without the end tag: <summary></p>"
+        @article.summary?.should == false
+        @article.summary.should == nil
+      end
+    end
+  end
+  
   describe "with comments" do
     describe "enabled" do
       before(:each) do

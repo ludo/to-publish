@@ -31,10 +31,11 @@ Merb::Router.prepare do
   # resources :posts
 
   namespace :admin do
+    resources :articles
     resources :pages
     
     match("").
-      to(:controller => "pages", :action => "index").
+      to(:controller => "articles", :action => "index").
       name(:root)
   end
   

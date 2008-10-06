@@ -16,27 +16,7 @@ module ContentSpecHelper
         malesuada lacinia. Phasellus condimentum cursus eros. Sed lorem libero,
         tempor id, ullamcorper non, lacinia in, dui. Donec ligula tortor, porta
         non, imperdiet scelerisque, scelerisque vitae, dui. Sed metus libero,
-        mollis vitae, cursus ac, blandit in, purus.</p>
-        
-        <summary>
-        <p>Nullam blandit magna et neque. Phasellus vel diam eu sem porta
-        aliquam. Aliquam erat volutpat. Donec viverra. Vestibulum rhoncus, urna
-        eu rhoncus dignissim, elit orci pharetra pede, ut cursus neque tortor
-        vitae orci. Nunc pretium sapien nec sulla. Pellentesque habitant morbi
-        tristique senectus et netus et malesuada fames ac turpis egestas.
-        Suspendisse ultrices libero nec justo. Maecenas ultraces egestas
-        libero. Nulla vitae nibh. Vestibulum augue libero, tristique elementum,
-        scelerisque ac, dapibus ut, diam.</p>
-        </summary>
-        
-        <p>In hac habitasse platea dictumst. Sed felis nunc, malesuada eget,
-        eleifend in, molestie nec, purus. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Fusce laoreet
-        tortor non mi volutpat pellentesque. Aenean ante risus, varius id,
-        pharetra quis, cursus in, nisi. In sodales imperdiet mauris.
-        Suspendisse sed elit. Vivamus eu mi pharetra nibh ullamcorper iaculis.
-        Curabitur nec pede ac velit facilisis venenatis. Aenean at pede. Donec
-        in elit.</p>" }
+        mollis vitae, cursus ac, blandit in, purus.</p>" }
   end
 end
 
@@ -84,29 +64,6 @@ describe Content do
 
       it "should be valid" do
         @content.should be_valid
-      end
-
-      it "should produce a summary if possible" do
-        @content.summary?.should == true
-        @content.summary.should == "Summary."
-      end
-
-      it "should not produce a summary when not available" do
-        @content.body = "<p>Something without summary tags.</p>"
-        @content.summary?.should == false
-        @content.summary.should == nil
-      end
-
-      it "without <summary> should not produce a summary" do
-        @content.body = "<p>Something with the end tag for a summary, but without the start tag: </summary></p>"
-        @content.summary?.should == false
-        @content.summary.should == nil
-      end
-
-      it "without </summary> should not produce a summary" do
-        @content.body = "<p>Something with a start tag for a summary, but without the end tag: <summary></p>"
-        @content.summary?.should == false
-        @content.summary.should == nil
       end
     end
 

@@ -3,7 +3,7 @@ module Admin
     # provides :xml, :yaml, :js
   
     def index
-      @pages = Page.published
+      @pages = Page.all
       display @pages
     end
   
