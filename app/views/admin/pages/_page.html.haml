@@ -1,0 +1,5 @@
+%li{:id => "page-#{page.id}"}
+  = page
+  %small{:id => "edit-page-#{page.id}", :class => "hidden"}
+    = link_to "edit", url(:edit_admin_page, page)
+    = delete_button url(:admin_page, page), "delete", :class => "delete_button"

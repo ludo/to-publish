@@ -1,0 +1,26 @@
+!!! XML
+!!! Strict
+%html{html_attrs('en')}
+  %head
+    %title
+      = catch_content :for_title
+      to publish
+    = css_include_tag :master
+    = css_include_tag :typography
+    = js_include_tag :jquery
+  %body
+    .container
+      #header
+        %h1
+          to
+          = link_to "publish", url(:admin_root)
+      #nav
+        = render_menu
+        %br{:style => "clear: both;"}
+      #main= catch_content :for_layout
+      #footer
+        %p 
+          to
+          = link_to "publish", "http://github.com/ludo/to-publish/wikis/home", :class => "to publish"
+          is developed by 
+          = link_to "cubicphuse", "http://cubicphuse.nl"

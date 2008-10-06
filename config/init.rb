@@ -50,7 +50,7 @@ dependency "merb-assets"        # Provides link_to, asset_path, auto_link, image
 # dependency "merb-cache"         # Provides your application with caching functions 
 dependency "merb-haml"          # Adds rake tasks and the haml generators to your merb app
 dependency "merb-helpers"           # Provides the form, date/time, and other helpers
-# dependency "merb-jquery"        # Provides a #jquery method to insert jQuery code in to a content block
+dependency "merb-jquery"        # Provides a #jquery method to insert jQuery code in to a content block
 # dependency "merb-mailer"        # Integrates mail support via Merb Mailer
 
 # These are a few, but not all, of the merb-plugin dependencies:

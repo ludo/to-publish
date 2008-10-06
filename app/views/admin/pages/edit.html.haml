@@ -1,15 +1,12 @@
-%h1
-  Pages controller, edit action
-%p
-  Edit this file in
-  %tt
-    app/views/pages/edit.html.erb
-= error_messages_for :page
+- title "Edit Page"
+- menu :pages
 
-= form_for(@page, :action => url(:page, @page)) do
-  %p
-    = submit "Update"
+%h2 edit page
 
-= link_to 'Show', url(:page, @page)
-|
-= link_to 'Back', url(:pages)
+= error_messages_for :article
+
+= form_for @page, :action => url(:admin_page, @page) do
+  = partial :form
+  = submit "Update"
+  or
+  = link_to "cancel", url(:admin_pages)

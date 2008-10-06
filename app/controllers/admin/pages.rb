@@ -1,16 +1,10 @@
 module Admin
-  class Pages < Application
+  class Pages < Base
     # provides :xml, :yaml, :js
   
     def index
-      @pages = Page.all
+      @pages = Page.published
       display @pages
-    end
-  
-    def show
-      @page = Page.get(params[:id])
-      raise NotFound unless @page
-      display @page
     end
   
     def new
@@ -29,7 +23,7 @@ module Admin
     def create
       @page = Page.new(params[:page])
       if @page.save
-        redirect url(:admin_page, @page)
+        redirect url(:admin_pages)
       else
         render :new
       end
@@ -39,7 +33,7 @@ module Admin
       @page = Page.get(params[:id])
       raise NotFound unless @page
       if @page.update_attributes(params[:page]) || !@page.dirty?
-        redirect url(:admin_page, @page)
+        redirect url(:admin_pages)
       else
         raise BadRequest
       end

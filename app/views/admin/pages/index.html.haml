@@ -1,16 +1,14 @@
-%h1
-  Pages controller, index action
-%p
-  Edit this file in
-  %tt
-    app/views/pages/index.html.erb
-%table
-  %tr
-  - for page in @pages
-    %tr
-      %td
-        = link_to 'Show', url(:page, page)
-      %td
-        = link_to 'Edit', url(:edit_page,  page)
+- title "Pages"
+- menu :pages
 
-= link_to 'New', url(:new_page)
+.actions
+  %h2 
+    published
+    %small== (#{link_to "new", url(:new_admin_page)})
+  %ul= partial :page, :with => @pages
+
+.completed.actions
+  %h2 drafts
+  %ul= partial :page, :with => Page.drafts
+
+%script{:type => "text/javascript"}= partial "admin/shared/toggle", :format => :js

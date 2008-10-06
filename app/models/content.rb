@@ -77,4 +77,21 @@ class Content
   def to_s
     title
   end
+  
+  # === Class Methods
+  class << self
+    # Find all content that has not been published yet
+    def drafts(conditions = {})
+      all(conditions.merge(
+        :published_at => nil
+      ))
+    end
+
+    # Find all published content
+    def published(conditions = {})
+      all(conditions.merge(
+        :published_at.not => nil
+      ))
+    end
+  end
 end

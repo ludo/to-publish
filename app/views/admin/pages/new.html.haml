@@ -1,13 +1,12 @@
-%h1 Pages controller, new action
+- title "New Page"
+- menu :pages
 
-%p 
-  Edit this file in 
-  %tt app/views/pages/new.html.erb
+%h2 new page
 
 = error_messages_for :page
 
-= form_for(@page, :action => url(:pages) ) do |f|
-  %p
-    = submit "Create"
-
-= link_to 'Back', url(:pages)
+= form_for @page, :action => url(:admin_pages) do
+  = partial :form
+  = submit "Create"
+  or
+  = link_to "cancel", url(:admin_pages)

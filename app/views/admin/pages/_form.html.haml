@@ -1,0 +1,11 @@
+%dl
+  %dt= label "Title", :for => "page_title"
+  %dd.major= text_field :title, :maxlength => 64, :size => 50
+  %dt
+    = label "Body", :for => "page_body"
+    .hint Using HTML for markup is allowed.
+  %dd~ text_area :body, :class => "content_body"
+  %dt
+    = label "Publish at", :for => "page_published_at"
+    .hint Enter a date and time formatted as 'dd-mm-yyyy HH:MM'. Leave this empty to save the page as a draft.
+  %dd= text_field :published_at, :value => @page.published_at.kind_of?(DateTime) ? @page.published_at.strftime("%d-%m-%Y %H:%M") : nil, :maxlength => 16, :size => 16
