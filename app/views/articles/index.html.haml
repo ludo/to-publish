@@ -1,0 +1,9 @@
+- title "Blog"
+
+= partial :article, :with => @articles.shift
+
+- throw_content :for_sub do
+  %h1 Recent Articles
+  - @articles.group_by { |a| "#{a.published_at.year}-#{a.published_at.month}-01" }.sort.reverse.each do |month, articles|
+    %h2= Time.parse(month).strftime('%B %Y')
+    %ul.articles= partial :list, :with => articles

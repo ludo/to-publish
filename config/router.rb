@@ -38,6 +38,15 @@ Merb::Router.prepare do
       to(:controller => "articles", :action => "index").
       name(:root)
   end
+
+  resources :articles, :collection => { :archive => :get }
+    
+  # Show a single article
+  match("/:year/:month/:day/:slug", 
+    :year => %r[^/(\d{4})$], 
+    :month => %r[^/(\d{2})$], 
+    :day => %r[^/(\d{2})$]).
+    to(:controller => "articles", :action => "show")
   
   # This is the default route for /:controller/:action/:id
   # This is fine for most cases.  If you're heavily using resource-based
@@ -46,5 +55,7 @@ Merb::Router.prepare do
   # default_routes
   
   # Change this for your home page to be available at /
-  # match('/').to(:controller => 'whatever', :action =>'index')
+  match("/").
+    to(:controller => "articles", :action => "index").
+    name(:root)
 end

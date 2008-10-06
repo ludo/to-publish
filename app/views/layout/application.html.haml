@@ -1,0 +1,40 @@
+!!! XML
+!!! Strict
+%html{html_attrs('en')}
+  %head
+    %title 
+      = catch_content :for_title
+      Cubicphuse
+    = css_include_tag :blog
+    = css_include_tag :typography
+    %script{:type => "text/javascript"}= partial "layout/google_analytics", :format => :js
+  %body
+    .section.main
+      .section-content
+        .content
+          = catch_content :for_layout
+        .navigation
+          %h1 Cubicphuse
+          %ul
+            %li= link_to 'Frontpage', url(:root)
+          %p== Welcome. This is a public diary, used to organize thoughts and findings on subjects that interest #{link_to "ludo", "/about"}.
+          %ul
+            %li= link_to 'Projects', '/projects'
+            %li= link_to 'About', '/about'
+            %li= link_to 'Archive', url(:archive_articles)
+            %li= link_to image_tag('feed-icon-14x14.png', :width => 14, :height => 14, :alt => 'Feed'), url(:articles, :format => :atom)
+        %br.clear
+    - if catch_content :for_sub
+      .section.sub
+        .section-content
+          .content= catch_content :for_sub
+          %br.clear
+    .footer
+      .section-content
+        .content
+          %p 
+            to
+            = link_to "publish", "http://github.com/ludo/to-publish/wikis/home", :class => "to publish"
+            is developed by 
+            = link_to "cubicphuse", "http://cubicphuse.nl"
+        %br.clear

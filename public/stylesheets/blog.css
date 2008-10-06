@@ -1,0 +1,244 @@
+/* UNIVERSAL RESET
+ * ========================================================================= */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* TOOLBAR
+ * ========================================================================= */
+.toolbar {
+	background: #090909;
+	color: #eee;
+	padding: .7em 1em;
+}
+
+.toolbar :link, .toolbar :visited {
+	color: #fff;
+}
+
+/* BODY
+ * ========================================================================= */
+body {
+	background: #fff;
+	color: #000;
+	font-family: Georgia, Helvetica, Arial, sans-serif;
+	font-size: 76%;
+}
+
+/* STRUCTURE
+ * ========================================================================= */
+div.content, div.navigation {
+	float: left;
+}
+
+br.clear {
+	clear: both;
+}
+
+/* Navigation
+ * ------------------------------------------------------------------------- */
+div.navigation {
+	margin-bottom: 3em;
+	text-align: center;
+	width: 15em;
+}
+
+div.navigation p {
+	margin-top: 0;
+	margin-bottom: 1.5em;
+	padding: 0 1.5em;
+}
+
+div.navigation ul {
+	list-style: none;
+	margin: 0;
+}
+
+div.navigation ul li {
+	padding: .7em;
+}
+
+div.navigation ul li a {
+	font-size: 1.2em;
+	line-height: 1.25;
+}
+
+/* Sections
+ * ------------------------------------------------------------------------- */
+div.section-content {
+	margin: 0 auto;
+	width: 57em;
+}
+
+/* Main
+ * ------------------------------------------------------------------------- */
+div.section.main {
+	background: #fff url(/images/bg-main.gif) repeat-x;
+}
+
+/* Sub
+ * ------------------------------------------------------------------------- */
+div.section.sub {
+	background: #fff;
+}
+
+div.section.sub div.content {
+	background: inherit;
+}
+
+div.section.sub div.author {
+	line-height: 1.5;
+	margin-top: 1.5em;
+}
+
+div.section.sub p {
+	margin-top: 1.5em;
+	text-indent: 0;
+}
+
+/* Footer
+ * ------------------------------------------------------------------------- */
+div.footer {
+	background: inherit;
+}
+
+div.footer div.content {
+	background: inherit;
+}
+
+/* Content
+ * ------------------------------------------------------------------------- */
+div.content {
+	padding: 0 4.5em 3em 4.5em;
+	width: 33em;
+}
+
+div.details {
+	margin-top: 1.5em;
+}
+
+/* LINKS
+ * ========================================================================= */
+a, a:link, a:visited {
+	color: #900;
+}
+
+a:active, a:hover {
+	color: #f00;
+}
+
+a[name] {
+	color: #000;
+}
+
+/* IMAGES
+ * ========================================================================= */
+img {
+	border: none;
+}
+
+/* Content
+ * ------------------------------------------------------------------------- */
+div.content img {
+	margin: 1.8em 0 0.225em 0;
+}
+
+div.content .date {
+	font-style: italic;
+}
+
+/* Correction for margin-top when img is right after a heading. */
+div.content h1 + img, div.content h2 + img, div.content h3 + img, div.content h4 + img, div.content h5 + img, div.content h6 + img {
+	margin-top: 1em;
+}
+
+/* center: Centers an image */
+div.content img.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* inline-left: Displays an image inline with the text, floating the text around the image */
+div.content img.inline-left, div.content img.pushed-left {
+	float: left;
+	margin-right: 1.5em; /* p.line-height * p.font-size */
+}
+
+/* pushed-left: Sticks an image to the left margin of the content box, text floats around the image */
+div.content img.pushed-left {
+	/* img.pushed-left.margin-left = p.line-height * p.font-size * 3 */
+	margin-left: -4.5em;
+}
+
+/* inline-right: Displays an image inline with the text, floating the text around the image */
+div.content img.inline-right, div.content img.pushed-right {
+	float: right;
+	margin-left: 1.5em; /* p.line-height * p.font-size */
+}
+
+/* pushed-right: Sticks an image to the right margin of the content box, text floats around the image */
+div.content img.pushed-right {
+	/* img.pushed-right.margin-right = p.line-height * p.font-size * 3 */
+	margin-right: -4.5em;
+}
+
+div.content img.full-width {
+	width: 33em;
+}
+
+div.content img.extra-width {
+	margin-left: -4.5em;
+	width: 42em;
+}
+
+div.content img.header {
+	margin-top: 0;
+}
+
+/* FORMS
+ * ========================================================================= */
+form textarea, form input {
+	font-family: Georgia, serif;
+	font-size: 1em;
+	line-height: 1.5;
+	width: 29em;
+}
+
+form button {
+	margin-top: 1.5em
+}
+
+form textarea {
+	margin-top: 1.5em;
+	height: 15em;
+}
+
+form dl dt {
+	margin-top: 1.5em;
+}
+
+form label {
+	line-height: 1.5;
+}
+
+/* Comment
+ * ------------------------------------------------------------------------- */
+form.comment h2 input[type=text] {
+	width: 24em;
+}
+
+/* ARTICLES
+ * ========================================================================= */
+ul.articles {
+	list-style: none;
+	margin-left: 1.5em;
+}
+
+ul.articles .day {
+	float: left;
+	margin-right: .5em;
+	width: 1em;
+	text-align: right;
+}
