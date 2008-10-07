@@ -40,6 +40,7 @@ Merb::Router.prepare do
   end
 
   resources :articles, :collection => { :archive => :get }
+  resources :comments
     
   # Articles by Year
   match("/:year", 

@@ -10,6 +10,9 @@ class Content
   property :created_at, DateTime
   property :updated_at, DateTime
   
+  # === Associations
+  has n, :comments
+  
   # === Callbacks
   before :valid?, :set_slug
   

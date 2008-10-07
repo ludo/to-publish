@@ -2,9 +2,6 @@ class Article < Content
   # === Properties
   property :published_at, DateTime
 
-  # === Associations
-  # has n, :comments
-  
   # === Instance Methods  
   
   # Determine whether posting comments is allowed

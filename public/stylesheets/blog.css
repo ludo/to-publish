@@ -206,8 +206,9 @@ form textarea, form input {
 	width: 29em;
 }
 
-form button {
-	margin-top: 1.5em
+form .button {
+	margin-top: 1.5em;
+	width: auto;
 }
 
 form textarea {

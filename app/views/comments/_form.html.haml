@@ -1,0 +1,15 @@
+= form_for(comment, :action => url(:comments), :class => "comment") do 
+  = hidden_field :content_id
+  %h2= text_field :title
+  ~ text_area :body
+  %dl
+    %dt
+      %label Your name
+    %dd= text_field :author
+    %dt
+      %label Your e-mail address (optional)
+    %dd= text_field :email
+    %dt
+      %label Your website/weblog (optional)
+    %dd= text_field :website
+  = submit "Save", :class => "button"
