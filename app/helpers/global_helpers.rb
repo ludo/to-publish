@@ -20,7 +20,7 @@ module Merb
       # TODO Make anchor fully functional
       anchor = "##{opts.delete(:anchor)}" if opts[:anchor]
       
-      link_to(name || obj.title, "#{path_for_content(obj)}#{anchor}", opts)
+      link_to(name || obj.title, "#{path_to_content(obj)}#{anchor}", opts)
     end
     
     # Little helper for selecting which menu will be active
@@ -44,9 +44,9 @@ module Merb
     #
     # --
     # @api public
-    def path_for_content(obj)
+    def path_to_content(obj)
       path = "/"
-      path += "/#{obj.published_at.strftime('%Y/%m/%d')}/" if obj.respond_to?(:published_at)
+      path += "#{obj.published_at.strftime('%Y/%m/%d')}/" if obj.respond_to?(:published_at)
       path += obj.slug
       path
     end

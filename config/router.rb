@@ -41,13 +41,35 @@ Merb::Router.prepare do
 
   resources :articles, :collection => { :archive => :get }
     
-  # Show a single article
+  # Articles by Year
+  match("/:year", 
+    :year => %r[^(\d{4})$]).
+    to(:controller => "articles", :action => "archive")
+
+  # Articles by Month
+  match("/:year/:month",
+    :year => %r[^(\d{4})$],
+    :month => %r[^(\d{2})$]).
+    to(:controller => "articles", :action => "archive")
+
+  # Articles by Month
+  match("/:year/:month/:day",
+    :year => %r[^(\d{4})$],
+    :month => %r[^(\d{2})$],
+    :day => %r[^(\d{2})$]).
+    to(:controller => "articles", :action => "archive")
+
+  # Show an article
   match("/:year/:month/:day/:slug", 
-    :year => %r[^/(\d{4})$], 
-    :month => %r[^/(\d{2})$], 
-    :day => %r[^/(\d{2})$]).
+    :year => %r[^(\d{4})$], 
+    :month => %r[^(\d{2})$], 
+    :day => %r[^(\d{2})$]).
     to(:controller => "articles", :action => "show")
   
+  # Show a static page
+  match("/:slug").
+    to(:controller => "pages", :action => "show")
+      
   # This is the default route for /:controller/:action/:id
   # This is fine for most cases.  If you're heavily using resource-based
   # routes, you may want to comment/remove this line to prevent

@@ -1,0 +1,7 @@
+- title "Articles Archive"
+
+%h1 Articles Archive
+
+- throw_content :for_sub do
+  %h1= "Articles in #{@date.strftime('%B %Y')}"
+  %ul.articles= partial :list, :with => @articles

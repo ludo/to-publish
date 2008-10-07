@@ -47,6 +47,7 @@ Merb.push_path(:lib, Merb.root / "lib") # uses **/*.rb as path glob.
 #
 # dependency "merb-action-args"   # Provides support for querystring arguments to be passed in to controller actions
 dependency "merb-assets"        # Provides link_to, asset_path, auto_link, image_tag methods (and lots more)
+dependency "merb-builder"
 # dependency "merb-cache"         # Provides your application with caching functions 
 dependency "merb-haml"          # Adds rake tasks and the haml generators to your merb app
 dependency "merb-helpers"           # Provides the form, date/time, and other helpers
@@ -78,6 +79,9 @@ Merb::BootLoader.after_app_loads do
   # For example, the magic_admin gem uses the app's model classes. This requires that the models be 
   # loaded already. So, we can put the magic_admin dependency here:
   # dependency "magic_admin"
+  
+  # MIME types
+  Merb.add_mime_type(:atom, nil, %w[application/atom+xml], :charset => "utf-8")
 end
 
 #
