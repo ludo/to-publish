@@ -12,7 +12,21 @@ class Comment
   property :updated_at, DateTime
   
   # === Associations
-  belongs_to :content
+  # TODO This thing creates a column named :content_id, but I want article_id
+  belongs_to :article
+  
+  # === Instance Methods
+  
+  # Return the title when stringified
+  #
+  # ===== Returns
+  # String:: The title
+  #
+  # --
+  # @api public
+  def to_s
+    title
+  end
   
   # === Class Methods
   class << self

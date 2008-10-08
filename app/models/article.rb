@@ -2,7 +2,22 @@ class Article < Content
   # === Properties
   property :published_at, DateTime
 
+  # === Associations
+  belongs_to :category
+  has n, :comments
+  
+  # === Validations
+  validates_with_method :title, :method => :check_published_title_is_unique
+  
   # === Instance Methods  
+  
+  def check_published_title_is_unique
+    if(published_at && Article.first(:published_at.like => "#{published_at.strftime('%Y-%m-%d')}%") != nil)
+      [false, "Title is already taken on this publication date."]
+    else
+      return true
+    end
+  end
   
   # Determine whether posting comments is allowed
   #

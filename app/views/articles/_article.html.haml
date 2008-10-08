@@ -1,1 +1,3 @@
 = prepare(article)
+
+.details== #{article.comments.size} #{link_to_content(article, (article.comments.size == 1) ? 'comment' : 'comments', :anchor => "comments")}.

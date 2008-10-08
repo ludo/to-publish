@@ -1,5 +1,8 @@
 class Page < Content
   
+  # === Validations
+  validates_is_unique :slug, :title
+  
   # === Class Methods
   class << self
     

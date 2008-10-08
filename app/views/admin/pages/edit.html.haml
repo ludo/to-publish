@@ -3,7 +3,7 @@
 
 %h2 edit page
 
-= error_messages_for :page
+= error_messages_for @page
 
 = form_for @page, :action => url(:admin_page, @page) do
   = partial :form

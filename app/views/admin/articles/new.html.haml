@@ -3,7 +3,7 @@
 
 %h2 new article
 
-= error_messages_for :article
+= error_messages_for @article
 
 = form_for @article, :action => url(:admin_articles) do
   = partial :form
