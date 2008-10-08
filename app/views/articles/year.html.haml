@@ -1,9 +1,6 @@
-- title "Articles Archive"
+- title "Archive"
 
-%h1 Articles Archive
-
-- throw_content :for_sub do
-  %h1= "Articles in #{@date.strftime('%Y')}"
-  - @articles.group_by { |a| "#{a.published_at.year}-#{a.published_at.month}-01" }.sort.reverse.each do |month, articles|
-    %h2= Time.parse(month).strftime('%B')
-    %ul.articles= partial :list, :with => articles
+%h1= "Articles in #{@date.strftime('%Y')}"
+- @articles.group_by { |a| "#{a.published_at.year}-#{a.published_at.month}-01" }.sort.reverse.each do |month, articles|
+  %h2= Time.parse(month).strftime('%B')
+  %ul.articles= partial :list, :with => articles

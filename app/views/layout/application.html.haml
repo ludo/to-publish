@@ -7,7 +7,8 @@
       Cubicphuse
     = css_include_tag :blog
     = css_include_tag :typography
-    %script{:type => "text/javascript"}= partial "layout/google_analytics", :format => :js
+    %script{:type => "text/javascript"}= partial "layout/google_analytics_init", :format => :js
+    %script{:type => "text/javascript"}= partial "layout/google_analytics_tracker", :format => :js
   %body
     .section.main
       .section-content
