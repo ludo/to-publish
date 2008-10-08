@@ -31,6 +31,10 @@ a img, a.img-link {
 	border: none;
 }
 
+a[name] {
+	color: #000;
+}
+
 /* STRUCTURE
  * ========================================================================= */
 div.content, div.navigation {
@@ -44,7 +48,7 @@ br.clear {
 /* Navigation
  * ------------------------------------------------------------------------- */
 div.navigation {
-	background: #eee url(/images/bg-main.png) repeat-x;
+	background: #fff;
 	margin-left: 1em;
 	margin-bottom: 3em;
 	text-align: center;
@@ -81,14 +85,16 @@ div.section-content {
 /* Main
  * ------------------------------------------------------------------------- */
 div.section.main {
-	background: #fff url(/images/bg-main.png) repeat-x;
+	background: #fff;
 }
 
 /* Sub
  * ------------------------------------------------------------------------- */
 div.section.sub {
-	background: #eee url(/images/bg-main.png) repeat-x;
-	border-top: 1px solid #aaa;
+	background: #eee;
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 1px 0;
 }
 
 div.section.sub div.author {

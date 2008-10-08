@@ -19,7 +19,7 @@
           %h1 Cubicphuse
           %ul
             %li= link_to 'Frontpage', url(:root)
-          %p== Welcome. This is a public diary, used to organize thoughts and findings on subjects that interest #{link_to "ludo", "/about"}.
+          %p== Welcome. This is a public diary, used to publish thoughts and findings on subjects that interest #{link_to "ludo", "/about"}.
           %ul
             %li= link_to 'Projects', '/projects'
             %li= link_to 'About', '/about'
@@ -35,6 +35,6 @@
       .section-content
         .content
           %p 
-            powered by to
-            = link_to "publish", "http://github.com/ludo/to-publish/wikis/home", :class => "to publish"
+            powered by
+            = link_to "to-publish", "http://github.com/ludo/to-publish/wikis/home", :class => "to publish"
         %br.clear
