@@ -7,6 +7,12 @@ module Admin
       display @pages
     end
   
+    def show
+      @page = Page.get(params[:id])
+      raise NotFound unless @page
+      display @page
+    end
+  
     def new
       only_provides :html
       @page = Page.new
@@ -43,7 +49,7 @@ module Admin
       @page = Page.get(params[:id])
       raise NotFound unless @page
       if @page.destroy
-        redirect url(:admin_page)
+        redirect url(:admin_pages)
       else
         raise BadRequest
       end

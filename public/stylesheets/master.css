@@ -208,14 +208,6 @@ div#footer a:hover, div#footer a:active {
 	background: #f44;
 }
 
-.actions .static {
-	background: #6af;
-}
-
-.completed .static {
-	background: #acf;
-}
-
 /* Album
  * ------------------------------------------------------------------------- */
 .actions li.album {

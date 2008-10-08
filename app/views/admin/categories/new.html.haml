@@ -1,0 +1,12 @@
+- title "New Category"
+- menu :categories
+
+%h2 new category
+
+= error_messages_for @category
+
+= form_for @category, :action => url(:admin_categories) do
+  = partial :form
+  = submit "Create"
+  or
+  = link_to "cancel", url(:admin_categories)

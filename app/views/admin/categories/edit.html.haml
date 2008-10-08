@@ -1,0 +1,12 @@
+- title "Edit Category"
+- menu :categories
+
+%h2 edit category
+
+= error_messages_for @category
+
+= form_for @category, :action => url(:admin_category, @category) do
+  = partial :form
+  = submit "Update"
+  or
+  = link_to "cancel", url(:admin_categories)

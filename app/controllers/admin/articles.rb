@@ -7,6 +7,12 @@ module Admin
       display @articles
     end
   
+    def show
+      @article = Article.get(params[:id])
+      raise NotFound unless @article
+      display @article
+    end
+  
     def new
       only_provides :html
       @article = Article.new
@@ -43,7 +49,7 @@ module Admin
       @article = Article.get(params[:id])
       raise NotFound unless @article
       if @article.destroy
-        redirect url(:admin_article)
+        redirect url(:admin_articles)
       else
         raise BadRequest
       end

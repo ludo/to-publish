@@ -1,9 +1,13 @@
-- title "Articles Archive"
+- title "Archive"
 
-%h1 Articles Archive
+%h1 Archive
 
-- throw_content :for_sub do
-  %h1 Articles Archive
-  %ul
-    - Time.now.year.downto(Article.min(:published_at).strftime('%Y').to_i) do |year|
-      %li= link_to year, "/#{year}"
+%h2 Browse by category
+%ul
+  - Category.all(:order => [:title]).each do |category|
+    %li= category
+
+%h2 Browse by date
+%ul
+  - Time.now.year.downto(Article.min(:published_at).strftime('%Y').to_i) do |year|
+    %li= link_to year, "/#{year}"

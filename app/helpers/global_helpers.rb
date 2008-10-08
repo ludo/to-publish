@@ -118,6 +118,10 @@ module Merb
           :pages => {
             :content => link_to("Pages", url(:admin_pages)),
             :position => 2
+          },
+          :categories => {
+            :content => link_to("Categories", url(:admin_categories)),
+            :position => 3
           }
         }
       end

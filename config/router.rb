@@ -32,6 +32,7 @@ Merb::Router.prepare do
 
   namespace :admin do
     resources :articles
+    resources :categories
     resources :pages
     
     match("").
@@ -39,26 +40,29 @@ Merb::Router.prepare do
       name(:root)
   end
 
-  resources :articles, :collection => { :archive => :get }
+  resources :articles, :collection => { 
+    :archive => :get, 
+    :archive_by_date => :get 
+  }
   resources :comments
     
   # Articles by Year
   match("/:year", 
     :year => %r[^(\d{4})$]).
-    to(:controller => "articles", :action => "archive")
+    to(:controller => "articles", :action => "archive_by_date")
 
   # Articles by Month
   match("/:year/:month",
     :year => %r[^(\d{4})$],
     :month => %r[^(\d{2})$]).
-    to(:controller => "articles", :action => "archive")
+    to(:controller => "articles", :action => "archive_by_date")
 
   # Articles by Month
   match("/:year/:month/:day",
     :year => %r[^(\d{4})$],
     :month => %r[^(\d{2})$],
     :day => %r[^(\d{2})$]).
-    to(:controller => "articles", :action => "archive")
+    to(:controller => "articles", :action => "archive_by_date")
 
   # Show an article
   match("/:year/:month/:day/:slug", 

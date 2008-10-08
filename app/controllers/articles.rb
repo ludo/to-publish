@@ -7,29 +7,30 @@ class Articles < Application
   end
   
   def archive
+    render (Article.count > 0) ? :archive : :empty
+  end
+  
+  def archive_by_date
     year, month, day = params[:year], params[:month], params[:day]
     
-    @date = Time.parse("#{year || Time.now.year}-#{month || 1}-#{day || 1}")
-    template = :archive
-    
-    if(params.include?(:year))
-      if params[:day]
-        template = :day
-        date = "#{year}-#{month}-#{day}"
-      elsif params[:month]
-        template = :month
-        date = "#{year}-#{month}"
-      elsif params[:year]
-        template = :year
-        date = "#{year}"
-      end
-
-      @articles = Article.all(
-        :published_at.like => "#{date}%",
-        :order => [:published_at.desc]
-      )
+    if params[:day]
+      template = :day
+      date = "#{year}-#{month}-#{day}"
+    elsif params[:month]
+      template = :month
+      date = "#{year}-#{month}"
+    elsif params[:year]
+      template = :year
+      date = "#{year}"
     end
 
+    @date = Time.parse("#{year || Time.now.year}-#{month || 1}-#{day || 1}")
+
+    @articles = Article.all(
+      :published_at.like => "#{date}%",
+      :order => [:published_at.desc]
+    )
+    
     display @articles, template
   end
   

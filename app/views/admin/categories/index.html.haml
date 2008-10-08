@@ -1,0 +1,10 @@
+- title "Categories"
+- menu :categories
+
+.actions
+  %h2 
+    categories
+    %small== (#{link_to "new", url(:new_admin_category)})
+  %ul= partial :category, :with => @categories
+
+%script{:type => "text/javascript"}= partial "admin/shared/toggle", :format => :js
