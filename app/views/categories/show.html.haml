@@ -1,0 +1,6 @@
+- title @category
+
+%h1= "Articles in #{@category}"
+%ul
+  - @category.articles.each do |article|
+    %li= article

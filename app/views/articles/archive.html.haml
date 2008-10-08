@@ -5,7 +5,9 @@
 %h2 Browse by category
 %ul
   - Category.all(:order => [:title]).each do |category|
-    %li= category
+    %li
+      = link_to category, url(:category, category)
+      == (#{category.articles.count})
 
 %h2 Browse by date
 %ul
