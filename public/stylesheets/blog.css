@@ -5,25 +5,30 @@
 	padding: 0;
 }
 
-/* TOOLBAR
- * ========================================================================= */
-.toolbar {
-	background: #090909;
-	color: #eee;
-	padding: .7em 1em;
-}
-
-.toolbar :link, .toolbar :visited {
-	color: #fff;
-}
-
 /* BODY
  * ========================================================================= */
 body {
 	background: #fff;
 	color: #000;
 	font-family: Georgia, Times, serif;
-	font-size: 76%;
+	font-size: .8em;
+}
+
+/* LINKS
+ * ========================================================================= */
+a, a:link, a:visited {
+	border-bottom: 1px solid #aaa;
+	color: #900;
+	text-decoration: none;
+}
+
+a:active, a:hover {
+	border-color: #d00;
+	color: #d00;
+}
+
+a img, a.img-link {
+	border: none;
 }
 
 /* STRUCTURE
@@ -39,6 +44,8 @@ br.clear {
 /* Navigation
  * ------------------------------------------------------------------------- */
 div.navigation {
+	background: #eee url(/images/bg-main.png) repeat-x;
+	margin-left: 1em;
 	margin-bottom: 3em;
 	text-align: center;
 	width: 15em;
@@ -68,23 +75,20 @@ div.navigation ul li a {
  * ------------------------------------------------------------------------- */
 div.section-content {
 	margin: 0 auto;
-	width: 57em;
+	width: 58em;
 }
 
 /* Main
  * ------------------------------------------------------------------------- */
 div.section.main {
-	background: #fff url(/images/bg-main.gif) repeat-x;
+	background: #fff url(/images/bg-main.png) repeat-x;
 }
 
 /* Sub
  * ------------------------------------------------------------------------- */
 div.section.sub {
-	background: #fff;
-}
-
-div.section.sub div.content {
-	background: inherit;
+	background: #eee url(/images/bg-main.png) repeat-x;
+	border-top: 1px solid #aaa;
 }
 
 div.section.sub div.author {
@@ -97,16 +101,6 @@ div.section.sub p {
 	text-indent: 0;
 }
 
-/* Footer
- * ------------------------------------------------------------------------- */
-div.footer {
-	background: inherit;
-}
-
-div.footer div.content {
-	background: inherit;
-}
-
 /* Content
  * ------------------------------------------------------------------------- */
 div.content {
@@ -116,26 +110,6 @@ div.content {
 
 div.details {
 	margin-top: 1.5em;
-}
-
-/* LINKS
- * ========================================================================= */
-a, a:link, a:visited {
-	color: #900;
-}
-
-a:active, a:hover {
-	color: #f00;
-}
-
-a[name] {
-	color: #000;
-}
-
-/* IMAGES
- * ========================================================================= */
-img {
-	border: none;
 }
 
 /* Content
