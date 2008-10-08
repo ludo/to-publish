@@ -44,9 +44,10 @@ Merb::Router.prepare do
     :archive => :get, 
     :archive_by_date => :get 
   }
+  
   resources :categories
   resources :comments
-    
+  
   # Articles by Year
   match("/:year", 
     :year => %r[^(\d{4})$]).

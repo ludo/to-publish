@@ -37,11 +37,7 @@ class Articles < Application
   def show
     date = Time.parse("#{params[:year]}-#{params[:month]}-#{params[:day]}")
 
-    @article = Article.first(
-      :slug => params[:slug],
-      :published_at.gte => date
-    )
-
+    @article = Article.first(:slug => params[:slug], :published_at.gte => date)
     raise NotFound unless @article
     display @article
   end
