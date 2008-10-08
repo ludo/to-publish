@@ -41,7 +41,7 @@ module Admin
       if @article.update_attributes(params[:article]) || !@article.dirty?
         redirect url(:admin_articles)
       else
-        raise BadRequest
+        render :edit
       end
     end
   

@@ -59,6 +59,9 @@ describe Article do
         article = Article.new(@valid_attributes.merge(:published_at => @publish_at))
         article.should_not be_valid
         article.errors.on(:title).should_not be_nil
+        
+        article.title = "Something Else"
+        article.should be_valid
       end
       
       it "should be ignored by draft article" do
