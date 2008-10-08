@@ -68,6 +68,11 @@ describe Article do
         article = Article.new(@valid_attributes.except(:published_at))
         article.should be_valid
       end
+      
+      it "should ignore itself" do
+        article = Article.first
+        article.should be_valid
+      end
     end
   end
   

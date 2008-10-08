@@ -12,7 +12,7 @@ class Article < Content
   # === Instance Methods  
   
   def check_published_title_is_unique
-    if(published_at && Article.count(:title => title, :published_at.like => "#{published_at.strftime('%Y-%m-%d')}%") > 0)
+    if(published_at && Article.count(:id.not => id, :title => title, :published_at.like => "#{published_at.strftime('%Y-%m-%d')}%") > 0)
       [false, "Title is already taken on this publication date."]
     else
       return true
