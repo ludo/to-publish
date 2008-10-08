@@ -1,7 +1,7 @@
 %dl
-  %dt= label "Title", :for => "page_title"
+  %dt.required= label "Title", :for => "page_title"
   %dd.major= text_field :title, :maxlength => 64, :size => 50
-  %dt
+  %dt.required
     = label "Body", :for => "page_body"
     .hint Using HTML for markup is allowed.
   %dd~ text_area :body, :class => "content_body"

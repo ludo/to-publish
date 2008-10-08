@@ -1,10 +1,14 @@
 %dl
-  %dt= label "Title", :for => "article_title"
+  %dt.required= label "Title", :for => "article_title"
   %dd.major= text_field :title, :maxlength => 64, :size => 50
-  %dt
+  %dt.required
     = label "Body", :for => "article_body"
     .hint Using HTML for markup is allowed.
   %dd~ text_area :body, :class => "content_body"
+  %dt
+    = label "Category", :for => "article_category_id"
+    .hint Select a category under which this article should be filed.
+  %dd= select :category_id, :collection => Category.all(:order => [:title]), :text_method => :title, :value_method => :id, :include_blank => true
   %dt
     = label "Publish at", :for => "article_published_at"
     .hint Enter a date and time formatted as 'dd-mm-yyyy HH:MM'. Leave this empty to save the page as a draft.

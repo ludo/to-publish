@@ -3,7 +3,7 @@ module Admin
     # provides :xml, :yaml, :js
   
     def index
-      @articles = Article.published
+      @articles = Article.published(:order => [:published_at.desc])
       display @articles
     end
   

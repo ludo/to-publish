@@ -358,6 +358,10 @@ form .hint {
 	font-style: italic;
 }
 
+form .required label {
+	color: #a00;
+}
+
 /* Form Errors
  * ------------------------------------------------------------------------- */
 .error {
