@@ -10,7 +10,7 @@
 body {
 	background: #fff;
 	color: #000;
-	font-family: Georgia, Times, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: .8em;
 }
 
@@ -37,6 +37,10 @@ a[name] {
 
 /* STRUCTURE
  * ========================================================================= */
+div.section {
+	background: #fff;
+}
+
 div.content, div.navigation {
 	float: left;
 }
@@ -48,9 +52,8 @@ br.clear {
 /* Navigation
  * ------------------------------------------------------------------------- */
 div.navigation {
-	background: #fff;
-	margin-left: 1em;
 	margin-bottom: 3em;
+	margin-left: 1em;
 	text-align: center;
 	width: 15em;
 }
@@ -91,10 +94,10 @@ div.section.main {
 /* Sub
  * ------------------------------------------------------------------------- */
 div.section.sub {
-	background: #eee;
+	background: #eee url(/images/bg-sub.png) repeat-x bottom left;
 	border-color: #ccc;
 	border-style: solid;
-	border-width: 1px 0;
+	border-width: 1px 0 0 0;
 }
 
 div.section.sub div.author {
@@ -105,6 +108,21 @@ div.section.sub div.author {
 div.section.sub p {
 	margin-top: 1.5em;
 	text-indent: 0;
+}
+
+/* Footer
+ * ------------------------------------------------------------------------- */
+.footer {
+	background-image: url(/images/bg-footer.png);
+	background-position: top left;
+	background-repeat: repeat-x;
+	border-color: #666;
+	border-style: solid;
+	border-width: 1px 0 0 0;
+}
+
+.footer a {
+	color: #444;
 }
 
 /* Content
@@ -118,8 +136,6 @@ div.details {
 	margin-top: 1.5em;
 }
 
-/* Content
- * ------------------------------------------------------------------------- */
 div.content img {
 	margin: 1.8em 0 0.225em 0;
 }
