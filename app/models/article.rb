@@ -32,6 +32,31 @@ class Article < Content
     published_at > Date.today - 30 ? true : false
   end
   
+  # Extract an excerpt from the body
+  #
+  # ==== Parameters
+  # length<Fixnum>:: Prefered length of the excerpt in number of 
+  #   characters.
+  #
+  # ==== Returns
+  # String:: An excerpt of approximately +length+ characters long
+  #
+  # --
+  # @api public
+  def excerpt(length = 128)
+    excerpt = summary? ? summary : body
+    
+    # Remove html tags
+    excerpt = excerpt.gsub(/<\/?[^>]*>/, "")
+    
+    # Prevent words from being cut in half
+    if(excerpt[length, 1] =~ /\w/)
+      length = excerpt.index(/\s/, length)
+    end
+    
+    excerpt.slice(0..length).strip
+  end
+  
   # Set +published_at+
   #
   # Verify whether <tt>value</tt> is a <tt>Date</tt>. If this is not the case then

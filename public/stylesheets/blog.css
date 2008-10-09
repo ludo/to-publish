@@ -101,7 +101,6 @@ div.section.sub {
 }
 
 div.section.sub div.author {
-	line-height: 1.5;
 	margin-top: 1.5em;
 }
 
@@ -196,7 +195,7 @@ div.content img.header {
 /* FORMS
  * ========================================================================= */
 form textarea, form input {
-	font-family: Georgia, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	line-height: 1.5;
 	width: 29em;
@@ -214,20 +213,18 @@ form .hint {
 }
 
 form textarea {
-	margin-top: 1.5em;
 	height: 15em;
 }
 
 form dl dt {
 	margin-top: 1.5em;
+	margin-bottom: .2em;
 }
 
 form label {
 	line-height: 1.5;
 }
 
-/* Comment
- * ------------------------------------------------------------------------- */
 form.comment h2 input[type=text] {
 	width: 24em;
 }
@@ -244,4 +241,10 @@ ul.articles .day {
 	margin-right: .5em;
 	width: 1em;
 	text-align: right;
+}
+
+ul.articles .excerpt {
+	font-size: .8em;
+	margin-bottom: .5em;
+	margin-left: 1.875em;
 }

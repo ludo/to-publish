@@ -5,7 +5,7 @@
 - throw_content :for_sub do
   %h1
     %a{:name => "comments"} Comments
-  %ol
+  %ol.comments
     = partial "comments/comment", :with => @article.comments
     - if @article.comments_allowed?
       %li= partial "comments/form", :comment => Comment.prepare(@article)

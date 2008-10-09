@@ -1,6 +1,10 @@
 - title @category
 
 %h1= "Articles in #{@category}"
-%ul
-  - @category.articles.each do |article|
-    %li= link_to_content(article)
+%ul.articles
+  - for article in @category.articles(:order => [:title])
+    %li
+      = link_to_content(article)
+      \-
+      = article.published_at.strftime("%B #{article.published_at.day.ordinalize}, %Y")
+      .excerpt== #{article.excerpt}&#8230;

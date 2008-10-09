@@ -24,24 +24,67 @@ describe Article do
         @article.summary?.should == true
         @article.summary.should == "Summary."
       end
+    end
+  end
+  
+  describe "summaries" do
+    before(:each) do
+      @article = Article.new(@valid_attributes)
+    end
+    
+    it "should not produce a summary when not available" do
+      @article.body = "<p>Something without summary tags.</p>"
+      @article.summary?.should == false
+      @article.summary.should == nil
+    end
 
-      it "should not produce a summary when not available" do
-        @article.body = "<p>Something without summary tags.</p>"
-        @article.summary?.should == false
-        @article.summary.should == nil
-      end
+    it "without <summary> should not produce a summary" do
+      @article.body = "<p>Something with the end tag for a summary, but without the start tag: </summary></p>"
+      @article.summary?.should == false
+      @article.summary.should == nil
+    end
 
-      it "without <summary> should not produce a summary" do
-        @article.body = "<p>Something with the end tag for a summary, but without the start tag: </summary></p>"
-        @article.summary?.should == false
-        @article.summary.should == nil
-      end
-
-      it "without </summary> should not produce a summary" do
-        @article.body = "<p>Something with a start tag for a summary, but without the end tag: <summary></p>"
-        @article.summary?.should == false
-        @article.summary.should == nil
-      end
+    it "without </summary> should not produce a summary" do
+      @article.body = "<p>Something with a start tag for a summary, but without the end tag: <summary></p>"
+      @article.summary?.should == false
+      @article.summary.should == nil
+    end
+  end
+  
+  describe "excerpt" do
+    before(:each) do
+      @article = Article.new(@valid_attributes)
+    end
+    
+    it "should extract an excerpt from the body" do
+      @article.body = "Lorem ipsum dolor sit amet."
+      @article.excerpt(10).should == "Lorem ipsum"
+    end
+    
+    it "should strip html tags" do
+      @article.body = "<p>Lorem ipsum<br /> dolor sit < b>amet</b>.</p>"
+      @article.excerpt.should == "Lorem ipsum dolor sit amet."
+    end
+    
+    it "should strip trailing whitespace" do
+      @article.body = "Lorem ipsum dolor sit amet."
+      @article.excerpt(11).should == "Lorem ipsum"
+    end
+    
+    it "should use summary if available" do
+      @article.body = "Lorem ipsum dolor <summary>sit amet.</summary>"
+      @article.excerpt.should == "sit amet."
+    end
+    
+    it "should not include words that are cut in half" do
+      @article.body = "Lorem ipsum dolor sit amet."
+      @article.excerpt(12).should == "Lorem ipsum dolor"
+      @article.excerpt(13).should == "Lorem ipsum dolor"
+    end
+    
+    it "should return '' when body is empty" do
+      @article.body = ""
+      @article.excerpt.should == ""
     end
   end
   

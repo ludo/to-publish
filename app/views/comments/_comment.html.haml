@@ -1,5 +1,6 @@
+- author = comment.website.empty? ? h(comment.author) : link_to(h(comment.author), h(comment.website))
+
 %li
   %h2= h(comment)
-  = h(comment.body)
-  - author = comment.website.empty? ? h(comment.author) : link_to(h(comment.author), h(comment.website))
+  = RedCloth.new(comment.body, [:filter_html]).to_html
   .author.date= "#{comment.created_at.strftime("%B #{comment.created_at.day.ordinalize}, %Y %H:%M")} by #{author}."

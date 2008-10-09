@@ -1,8 +1,10 @@
 = form_for(comment, :action => url(:comments), :class => "comment") do 
   = hidden_field :content_id
   %h2= text_field :title
-  ~ text_area :body
   %dl
+    %dt
+      .hint== You may use #{link_to "Textile", "http://redcloth.org/textile"} formatting to format your comment.
+    %dd~ text_area :body
     %dt= label "Your name", :id => "comment_author"
     %dd= text_field :author
     %dt

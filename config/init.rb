@@ -72,6 +72,8 @@ dependency "dm-aggregates"
 dependency "dm-timestamps"
 dependency "dm-validations"
 
+dependency "RedCloth", "> 4.0"
+
 # You can also add in dependencies after your application loads.
 Merb::BootLoader.after_app_loads do
   # For example, the magic_admin gem uses the app's model classes. This requires that the models be 
