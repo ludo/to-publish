@@ -191,6 +191,12 @@ form .button {
 	width: auto;
 }
 
+form .hint {
+	color: #555;
+	font-size: .8em;
+	font-style: italic;
+}
+
 form textarea {
 	margin-top: 1.5em;
 	height: 15em;

@@ -5,7 +5,9 @@
   %dl
     %dt= label "Your name", :id => "comment_author"
     %dd= text_field :author
-    %dt= label "Your e-mail address (optional)", :id => "comment_email"
+    %dt
+      = label "Your e-mail address (optional)", :id => "comment_email"
+      .hint E-mail addresses will never be published. The only one who can view it is the owner of this blog.
     %dd= text_field :email
     %dt= label "Your website/weblog (optional)", :id => "comment_website"
     %dd= text_field :website
