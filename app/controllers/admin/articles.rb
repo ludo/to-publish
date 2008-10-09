@@ -28,6 +28,7 @@ module Admin
   
     def create
       @article = Article.new(params[:article])
+      @article.categories = Category.all(:id.in => params[:category_ids])
       if @article.save
         redirect url(:admin_articles)
       else
@@ -38,6 +39,10 @@ module Admin
     def update
       @article = Article.get(params[:id])
       raise NotFound unless @article
+      
+      # TODO Find a prettier/less db intensive way of doing this
+      @article.article_categories.destroy!
+      @article.categories = Category.all(:id.in => params[:category_ids])
       if @article.update_attributes(params[:article]) || !@article.dirty?
         redirect url(:admin_articles)
       else

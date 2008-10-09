@@ -3,13 +3,10 @@
   %h2= text_field :title
   ~ text_area :body
   %dl
-    %dt
-      %label Your name
+    %dt= label "Your name", :id => "comment_author"
     %dd= text_field :author
-    %dt
-      %label Your e-mail address (optional)
+    %dt= label "Your e-mail address (optional)", :id => "comment_email"
     %dd= text_field :email
-    %dt
-      %label Your website/weblog (optional)
+    %dt= label "Your website/weblog (optional)", :id => "comment_website"
     %dd= text_field :website
   = submit "Save", :class => "button"

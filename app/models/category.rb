@@ -7,7 +7,7 @@ class Category
   property :description, String, :length => 256
   
   # === Associations
-  has n, :articles
+  has n, :articles, :through => Resource
   
   # === Validations
   validates_is_unique :title

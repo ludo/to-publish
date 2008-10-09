@@ -3,7 +3,7 @@ class Article < Content
   property :published_at, DateTime
 
   # === Associations
-  belongs_to :category
+  has n, :categories, :through => Resource
   has n, :comments
   
   # === Validations

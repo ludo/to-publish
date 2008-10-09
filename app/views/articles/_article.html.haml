@@ -2,5 +2,7 @@
 
 .details
   == #{article.comments.count} #{link_to_content(article, (article.comments.count == 1) ? 'comment' : 'comments', :anchor => "comments")}
-  - if article.category_id
-    == - filed under #{link_to article.category.title.downcase, url(:category, article.category)}
+  - if article.categories.count > 0
+    \- filed under:
+    - for category in article.categories
+      == #{link_to category.title.downcase, url(:category, category)},
