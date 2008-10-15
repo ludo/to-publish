@@ -1,4 +1,6 @@
 class Articles < Application
+  
+  # GET /articles
   def index
     provides :html, :atom
     
@@ -6,10 +8,14 @@ class Articles < Application
     @articles.empty? ? render(:empty) : display(@articles)
   end
   
+  # GET /articles/archive
   def archive
     render (Article.count > 0) ? :archive : :empty
   end
   
+  # GET /:year
+  # GET /:year/:month
+  # GET /:year/:month/:day
   def archive_by_date
     year, month, day = params[:year], params[:month], params[:day]
     
@@ -34,6 +40,7 @@ class Articles < Application
     display @articles, template
   end
   
+  # GET /:year/:month/:day/:slug
   def show
     date = Time.parse("#{params[:year]}-#{params[:month]}-#{params[:day]}")
 

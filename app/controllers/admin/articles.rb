@@ -2,61 +2,69 @@ module Admin
   class Articles < Base
     # provides :xml, :yaml, :js
   
+    # GET /admin/articles
     def index
       @articles = Article.published(:order => [:published_at.desc])
       display @articles
     end
   
-    def show
-      @article = Article.get(params[:id])
+    # GET /admin/articles/:id
+    def show(id)
+      @article = Article.get(id)
       raise NotFound unless @article
       display @article
     end
   
+    # GET /admin/articles/new
     def new
       only_provides :html
       @article = Article.new
-      render
+      display Article
     end
   
-    def edit
+    # GET /admin/articles/:id/edit
+    def edit(id)
       only_provides :html
-      @article = Article.get(params[:id])
+      @article = Article.get(id)
       raise NotFound unless @article
-      render
+      display @article
     end
   
-    def create
-      @article = Article.new(params[:article])
+    # POST /admin/articles
+    def create(article)
+      @article = Article.new(article)
       @article.categories = Category.all(:id.in => params[:category_ids])
       if @article.save
-        redirect url(:admin_articles)
+        redirect url(:admin_articles), :message => {:notice => "Article was successfully created"}
       else
         render :new
       end
     end
   
-    def update
+    # PUT /admin/articles/:id
+    def update(article)
       @article = Article.get(params[:id])
       raise NotFound unless @article
       
       # TODO Find a prettier/less db intensive way of doing this
       @article.article_categories.destroy!
       @article.categories = Category.all(:id.in => params[:category_ids])
-      if @article.update_attributes(params[:article]) || !@article.dirty?
-        redirect url(:admin_articles)
+      
+      if @article.update_attributes(article)
+        redirect url(:admin_articles), :message => {:notice => "Article was successfully updated"}
       else
-        render :edit
+        display @article, :edit
       end
     end
   
-    def destroy
-      @article = Article.get(params[:id])
+    # DELETE /admin/articles/:id
+    def destroy(id)
+      @article = Article.get(id)
       raise NotFound unless @article
       if @article.destroy
         redirect url(:admin_articles)
       else
-        raise BadRequest
+        raise InternalServerError
       end
     end
   

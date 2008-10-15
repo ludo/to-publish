@@ -2,32 +2,37 @@ module Admin
   class Categories < Base
     # provides :xml, :yaml, :js
   
+    # GET /admin/categories
     def index
       @categories = Category.all(:order => [:title])
       display @categories
     end
   
-    def show
-      @category = Category.get(params[:id])
+    # GET /admin/categories/:id
+    def show(id)
+      @category = Category.get(id)
       raise NotFound unless @category
       display @category
     end
   
+    # GET /admin/categories/new
     def new
       only_provides :html
       @category = Category.new
-      render
+      display Category
     end
   
-    def edit
+    # GET /admin/categories/:id/edit
+    def edit(id)
       only_provides :html
-      @category = Category.get(params[:id])
+      @category = Category.get(id)
       raise NotFound unless @category
-      render
+      display @category
     end
   
-    def create
-      @category = Category.new(params[:category])
+    # POST /admin/categories
+    def create(category)
+      @category = Category.new(category)
       if @category.save
         redirect url(:admin_categories)
       else
@@ -35,23 +40,25 @@ module Admin
       end
     end
   
-    def update
+    # PUT /admin/categories/:id
+    def update(category)
       @category = Category.get(params[:id])
       raise NotFound unless @category
-      if @category.update_attributes(params[:category]) || !@category.dirty?
+      if @category.update_attributes(category)
         redirect url(:admin_categories)
       else
-        raise BadRequest
+        display @category, :edit
       end
     end
   
-    def destroy
-      @category = Category.get(params[:id])
+    # DELETE /admin/categories/:id
+    def destroy(id)
+      @category = Category.get(id)
       raise NotFound unless @category
       if @category.destroy
         redirect url(:admin_categories)
       else
-        raise BadRequest
+        raise InternalServerError
       end
     end
   
