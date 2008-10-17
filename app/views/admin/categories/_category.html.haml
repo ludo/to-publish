@@ -2,4 +2,4 @@
   = category
   %small{:id => "edit-category-#{category.id}", :class => "hidden"}
     = link_to "edit", url(:edit_admin_category, category)
-    = delete_button url(:admin_category, category), "delete", :class => "delete_button"
+    = delete_button url(:admin_category, category), "delete"

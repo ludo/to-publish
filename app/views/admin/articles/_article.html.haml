@@ -4,4 +4,4 @@
     %small.due= article.published_at.strftime("%B #{article.published_at.day.ordinalize}, %Y")
   %small{:id => "edit-article-#{article.id}", :class => "hidden"}
     = link_to "edit", url(:edit_admin_article, article)
-    = delete_button url(:admin_article, article), "delete", :class => "delete_button"
+    = delete_button url(:admin_article, article), "delete"
