@@ -53,7 +53,7 @@ a:active, a:hover {
 	padding: 0;
 }
 
-.delete-btn input:active, .delete-btn button:hover {
+.delete-btn input:active, .delete-btn input:hover {
 	color: #000;
 }
 
