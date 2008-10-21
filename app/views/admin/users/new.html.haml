@@ -1,0 +1,12 @@
+- title "New Author"
+- menu :users
+
+%h2 new author
+
+= error_messages_for @user
+
+= form_for @user, :action => url(:admin_users) do
+  = partial :form
+  = submit "Create"
+  or
+  = link_to "cancel", url(:admin_users)

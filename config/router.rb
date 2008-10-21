@@ -30,16 +30,22 @@ Merb::Router.prepare do
   # RESTful routes
   # resources :posts
 
-  namespace :admin do
-    resources :articles
-    resources :categories
-    resources :pages
-    
-    match("").
-      to(:controller => "articles", :action => "index").
-      name(:root)
+  # Adds the required routes for merb-auth using the password slice
+  slice(:merb_auth_slice_password, :name_prefix => nil, :path_prefix => "")
+  
+  authenticate do
+    namespace :admin do
+      resources :articles
+      resources :categories
+      resources :pages
+      resources :users
+  
+      match("").
+        to(:controller => "articles", :action => "index").
+        name(:root)
+    end
   end
-
+  
   resources :articles, :collection => { 
     :archive => :get, 
     :archive_by_date => :get 

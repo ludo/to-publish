@@ -10,7 +10,7 @@
 body {
 	background: #fff;
 	color: #000;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Georgia, Times, serif;
 	font-size: .8em;
 }
 
@@ -195,7 +195,7 @@ div.content img.header {
 /* FORMS
  * ========================================================================= */
 form textarea, form input {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Georgia, Times, serif;
 	font-size: 1em;
 	line-height: 1.5;
 	width: 29em;

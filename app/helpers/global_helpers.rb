@@ -122,6 +122,11 @@ module Merb
           :categories => {
             :content => link_to("Categories", url(:admin_categories)),
             :position => 3
+          },
+          :users => {
+            :content => link_to("Authors", url(:admin_users)),
+            :position => 4,
+            :attrs => { :class => "right" }
           }
         }
       end

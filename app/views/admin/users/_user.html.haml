@@ -1,0 +1,5 @@
+%li{:id => "user-#{user.id}"}
+  = user
+  %small{:id => "edit-user-#{user.id}", :class => "hidden"}
+    = link_to "edit", url(:edit_admin_user, user)
+    = delete_button url(:admin_user, user), "delete"

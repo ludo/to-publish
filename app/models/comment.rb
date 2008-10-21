@@ -2,7 +2,7 @@ class Comment
   include DataMapper::Resource
 
   # === Properties
-  property :id, Integer, :serial => true
+  property :id, Serial
   property :title, String, :nullable => false, :length => 64
   property :body, Text, :nullable => false #, :lazy => false Is this neccessary?
   property :author, String, :length => 64, :nullable => false

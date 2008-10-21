@@ -1,0 +1,10 @@
+- title "Authors"
+- menu :users
+
+.actions
+  %h2 
+    authors
+    %small== (#{link_to "new", url(:new_admin_user)})
+  %ul= partial :user, :with => @users
+
+%script{:type => "text/javascript"}= partial "admin/shared/toggle", :format => :js

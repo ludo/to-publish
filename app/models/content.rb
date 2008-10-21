@@ -2,7 +2,7 @@ class Content
   include DataMapper::Resource
 
   # === Properties
-  property :id, Integer, :serial => true
+  property :id, Serial
   property :type, Discriminator
   property :title, String, :nullable => false, :length => 64
   property :slug, String, :nullable => false, :length => 64
