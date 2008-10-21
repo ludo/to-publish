@@ -4,5 +4,4 @@
   == #{article.comments.count} #{link_to_content(article, (article.comments.count == 1) ? 'comment' : 'comments', :anchor => "comments")}
   - if article.categories.count > 0
     \- filed under:
-    - for category in article.categories
-      == #{link_to category.title.downcase, url(:category, category)},
+    = article.categories.collect { |c| link_to(c.title.downcase, url(:category, c)) }.join(", ")
