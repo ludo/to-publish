@@ -1,15 +1,12 @@
-%h1
-  Users controller, edit action
-%p
-  Edit this file in
-  %tt
-    app/views/users/edit.html.erb
-= error_messages_for :user
+- title "Edit Author"
+- menu :users
 
-= form_for(@user, :action => url(:user, @user)) do
-  %p
-    = submit "Update"
+%h2 edit user
 
-= link_to 'Show', url(:user, @user)
-|
-= link_to 'Back', url(:users)
+= error_messages_for @user
+
+= form_for @user, :action => url(:admin_user, @user) do
+  = partial :form
+  = submit "Update"
+  or
+  = link_to "cancel", url(:admin_users)
