@@ -1,4 +1,4 @@
-- author = comment.website ? h(comment.author) : link_to(h(comment.author), h(comment.website))
+- author = comment.website ? link_to(h(comment.author), h(comment.website)) : h(comment.author)
 
 %li
   %h2= h(comment)
