@@ -4,7 +4,7 @@ class Articles < Application
   def index
     provides :html, :atom
     
-    @articles = Article.published(:order => [:published_at.desc], :limit => 10)
+    @articles = Article.published(:order => [:published_at.desc], :limit => 6)
     @articles.empty? ? render(:empty) : display(@articles)
   end
   
