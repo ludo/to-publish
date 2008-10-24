@@ -252,3 +252,13 @@ ul.articles .excerpt {
 	margin-bottom: .5em;
 	margin-left: 1.875em;
 }
+
+/* CODE LISTINGS
+ * ========================================================================= */
+.code {
+	background: #eee;
+	border-color: #999;
+	border-style: solid;
+	border-width: 1px 0;
+	padding: .3em;
+}

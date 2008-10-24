@@ -1,4 +1,5 @@
-= prepare(article)
+:preserve 
+  #{prepare(article)}
 
 .details
   == #{article.comments.count} #{link_to_content(article, (article.comments.count == 1) ? 'comment' : 'comments', :anchor => "comments")}

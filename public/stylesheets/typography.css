@@ -1,6 +1,6 @@
 /* PARAGRAPHS
  * ========================================================================= */
-p, blockquote, dl {
+p, blockquote, dl, pre {
 	line-height: 1.5;
 	margin-top: 1.5em;
 	text-indent: 0;
@@ -9,6 +9,10 @@ p, blockquote, dl {
 p + p {
 	margin-top: 0;
 	text-indent: 1.5em; /* p.line-height * p.font-size */
+}
+
+pre {
+	line-height: 1.2;
 }
 
 /* HEADINGS
