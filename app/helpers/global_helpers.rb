@@ -1,5 +1,19 @@
 module Merb
   module GlobalHelpers
+    
+    # Display a Gravatar avatar
+    #
+    # TODO Allow options, like different sizes
+    #
+    # ==== Parameters
+    # email<String>:: E-mail address to show Gravatar for
+    #
+    # ==== Returns
+    # String:: An URL to a Gravatar
+    def gravatar(email)
+      str = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.jpg?s=40"
+    end
+    
     # Creates an html link for a Content
     #
     # The text for the link defaults to the content's title, but can be 

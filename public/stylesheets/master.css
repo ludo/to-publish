@@ -7,6 +7,13 @@ body {
 	padding: 0;
 }
 
+.clear {
+	clear: both;
+	/* 'HACK' to make IE display the element the way I want. */
+	font-size: 0;
+	line-height: 0;
+}
+
 .hidden {
 	display: none;
 }
