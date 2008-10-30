@@ -1,0 +1,8 @@
+- title "Dashboard"
+- menu :dashboard
+
+.actions
+  %h2 public activity
+  %dl.events
+    - for event in @events
+      = partial event.class.to_s.downcase, :with => event

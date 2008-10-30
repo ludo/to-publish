@@ -1,0 +1,4 @@
+- author = comment.email && !comment.email.empty? ? link_to(h(comment.author), "mailto:#{comment.email}") : h(comment.author)
+
+%dt.comment== #{author} commented on #{link_to_content(comment.article)}
+%dd= comment.created_at.strftime("%B #{comment.created_at.day.ordinalize}, %Y %H:%M")

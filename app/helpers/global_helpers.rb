@@ -125,21 +125,25 @@ module Merb
       # @api private
       def menu_items
         {
+          :dashboard => {
+            :content => link_to("Dashboard", url(:admin_root)),
+            :position => 1
+          },
           :articles => {
             :content => link_to("Articles", url(:admin_articles)),
-            :position => 1
+            :position => 2
           },
           :pages => {
             :content => link_to("Pages", url(:admin_pages)),
-            :position => 2
+            :position => 3
           },
           :categories => {
             :content => link_to("Categories", url(:admin_categories)),
-            :position => 3
+            :position => 4
           },
           :users => {
             :content => link_to("Authors", url(:admin_users)),
-            :position => 4,
+            :position => 5,
             :attrs => { :class => "right" }
           }
         }

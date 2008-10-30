@@ -41,7 +41,7 @@ Merb::Router.prepare do
       resources :users
   
       match("").
-        to(:controller => "articles", :action => "index").
+        to(:controller => "dashboard", :action => "index").
         name(:root)
     end
   end

@@ -148,7 +148,12 @@ div.content .date {
 }
 
 /* Correction for margin-top when img is right after a heading. */
-div.content h1 + img, div.content h2 + img, div.content h3 + img, div.content h4 + img, div.content h5 + img, div.content h6 + img {
+div.content h1 + img, 
+div.content h2 + img, 
+div.content h3 + img, 
+div.content h4 + img, 
+div.content h5 + img, 
+div.content h6 + img {
 	margin-top: 1em;
 }
 

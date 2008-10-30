@@ -186,6 +186,35 @@ div#footer a:hover, div#footer a:active {
 	color: #000;
 }
 
+/* EVENT LIST
+ * ========================================================================= */
+.events {
+	margin: 0;
+}
+
+.events dt {
+	background-position: left .2em;
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0 1.3em;
+}
+
+.events dt.article {
+	background-image: url(/images/icons/page_white_text.png);
+}
+
+.events dt.comment {
+	background-image: url(/images/icons/comment.png);
+}
+
+.events dd {
+	color: #666;
+	font-size: .8em;
+	font-style: italic;
+	margin: 0;
+	padding: 0 1.625em .75em 1.625em;
+}
+
 /* ACTION LISTS
  * ========================================================================= */
 

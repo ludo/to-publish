@@ -12,7 +12,6 @@ class Comment
   property :updated_at, DateTime
   
   # === Associations
-  # TODO This thing creates a column named :content_id, but I want article_id
   belongs_to :article
   
   # === Instance Methods
