@@ -1,7 +1,7 @@
 /* BODY
  * ========================================================================= */
 body {
-	background: #fff url(../images/admin/bg-body.png) repeat-x top left;
+	background: #fff url(/images/bg-body.png) repeat-x top left;
 	font-family: Helvetica, Arial, sans-serif;
 	margin: 0;
 	padding: 0;
@@ -73,7 +73,7 @@ a:active, a:hover {
 /* Auth
  * ------------------------------------------------------------------------- */
 #auth {
-	background: #444 url(../images/admin/bg-auth.png) repeat-x bottom left;
+	background: #444 url(/images/bg-auth.png) repeat-x bottom left;
 	color: #fff;
 	padding: .2em 0;
 }
@@ -118,9 +118,9 @@ a:active, a:hover {
 }
 
 #header img.avatar {
-	border: .1em solid #aaa;
+	border: 1px solid #aaa;
 	margin: -.4em .6em 0 0;
-	padding: .1em;
+	padding: 2px;
 }
 
 /* Navigation
@@ -434,14 +434,14 @@ div.error ul {
 	padding: .4em 5.3em;
 }
 
-.notice {
+.message.notice {
 	background-color: #dff2bf;
 	background-image: url(/images/icons/accept.png);
 	border-bottom-color: #4f8a10;
 	color: #4f8a10;
 }
 
-.warning {
+.message.error {
 	background-color: #feefb3;
 	background-image: url(/images/icons/error.png);
 	border-bottom-color: #9f6000;

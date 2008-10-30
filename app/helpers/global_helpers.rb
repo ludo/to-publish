@@ -101,9 +101,9 @@ module Merb
         end
 
         # Create a tag for each item
-      	menu += tag "li", item[1][:content], item[1][:attrs]
+      	menu += tag :li, item[1][:content], item[1][:attrs]
     	end
-    	tag "ul", menu
+    	tag :ul, menu
     end
 
     # Set the <title> for a page

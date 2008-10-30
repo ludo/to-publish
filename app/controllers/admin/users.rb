@@ -31,6 +31,7 @@ module Admin
       if @user.save
         redirect url(:admin_users), :message => {:notice => "User was successfully created"}
       else
+        message[:error] = "User failed to be created"
         render :new
       end
     end
