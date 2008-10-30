@@ -34,7 +34,7 @@ module Admin
     def create(category)
       @category = Category.new(category)
       if @category.save
-        redirect url(:admin_categories)
+        redirect url(:admin_categories), :message => {:notice => "Category was successfully created"}
       else
         render :new
       end
@@ -45,7 +45,7 @@ module Admin
       @category = Category.get(params[:id])
       raise NotFound unless @category
       if @category.update_attributes(category)
-        redirect url(:admin_categories)
+        redirect url(:admin_categories), :message => {:notice => "Category was successfully updated"}
       else
         display @category, :edit
       end
@@ -56,7 +56,7 @@ module Admin
       @category = Category.get(id)
       raise NotFound unless @category
       if @category.destroy
-        redirect url(:admin_categories)
+        redirect url(:admin_categories), :message => {:notice => "Category was successfully deleted"}
       else
         raise InternalServerError
       end

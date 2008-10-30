@@ -13,6 +13,8 @@
       .container
         %ul= partial "layout/auth"
         %br.clear
+    - message.each do |kind, value|
+      .message{:class => kind.to_s}= value
     .container
       #header
         - if session.authenticated?

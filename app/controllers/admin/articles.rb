@@ -62,7 +62,7 @@ module Admin
       @article = Article.get(id)
       raise NotFound unless @article
       if @article.destroy
-        redirect url(:admin_articles)
+        redirect url(:admin_articles), :message => {:notice => "Article was successfully deleted"}
       else
         raise InternalServerError
       end

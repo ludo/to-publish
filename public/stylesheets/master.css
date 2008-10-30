@@ -392,3 +392,29 @@ div.error ul {
 	font-size: .8em;
 	margin: 0;
 }
+
+/* MESSAGES
+ * ========================================================================= */
+.message {
+	background-color: #fff;
+	background-position: 3.75em .35em;
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #ccc;
+	font-size: .8em;
+	font-weight: bold;
+	padding: .4em 5.3em;
+}
+
+.notice {
+	background-color: #dff2bf;
+	background-image: url(/images/icons/accept.png);
+	border-bottom-color: #4f8a10;
+	color: #4f8a10;
+}
+
+.warning {
+	background-color: #feefb3;
+	background-image: url(/images/icons/error.png);
+	border-bottom-color: #9f6000;
+	color: #9f6000;
+}

@@ -34,7 +34,7 @@ module Admin
     def create(page)
       @page = Page.new(page)
       if @page.save
-        redirect url(:admin_pages)
+        redirect url(:admin_pages), :message => {:notice => "Page was successfully created"}
       else
         render :new
       end
@@ -45,7 +45,7 @@ module Admin
       @page = Page.get(params[:id])
       raise NotFound unless @page
       if @page.update_attributes(page)
-        redirect url(:admin_pages)
+        redirect url(:admin_pages), :message => {:notice => "Page was successfully updated"}
       else
         display @page, :edit
       end
@@ -56,7 +56,7 @@ module Admin
       @page = Page.get(id)
       raise NotFound unless @page
       if @page.destroy
-        redirect url(:admin_pages)
+        redirect url(:admin_pages), :message => {:notice => "Page was successfully deleted"}
       else
         raise InternalServerError
       end

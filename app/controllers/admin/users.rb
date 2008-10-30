@@ -39,7 +39,7 @@ module Admin
       @user = User.get(params[:id])
       raise NotFound unless @user
       if @user.update_attributes(user)
-        redirect url(:admin_users)
+        redirect url(:admin_users), :message => {:notice => "User was successfully updated"}
       else
         display @user, :edit
       end
@@ -49,7 +49,7 @@ module Admin
       @user = User.get(id)
       raise NotFound unless @user
       if @user.destroy
-        redirect url(:admin_users)
+        redirect url(:admin_users), :message => {:notice => "User was successfully deleted"}
       else
         raise InternalServerError
       end
