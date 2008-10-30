@@ -17,8 +17,8 @@ body {
 /* LINKS
  * ========================================================================= */
 a, a:link, a:visited {
-	border-bottom: 1px solid #aaa;
-	color: #900;
+	border-bottom: 1px solid #E89399;
+	color: #2E4F72;
 	text-decoration: none;
 }
 
@@ -92,7 +92,7 @@ div.section-content {
 /* Main
  * ------------------------------------------------------------------------- */
 div.section.main {
-	background: #fff;
+	background: #fff url(/images/admin/bg-body.png) repeat-x top left;
 }
 
 /* Sub
