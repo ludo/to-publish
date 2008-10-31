@@ -3,9 +3,8 @@
 
 %h2 new category
 
-= error_messages_for @category
-
 = form_for @category, :action => url(:admin_categories) do
+  = error_messages_for @category
   = partial :form
   = submit "Create"
   or

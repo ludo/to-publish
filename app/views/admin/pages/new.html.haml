@@ -3,9 +3,8 @@
 
 %h2 new page
 
-= error_messages_for @page
-
 = form_for @page, :action => url(:admin_pages) do
+  = error_messages_for @page
   = partial :form
   = submit "Create"
   or

@@ -3,9 +3,8 @@
 
 %h2 edit article
 
-= error_messages_for @article
-
 = form_for @article, :action => url(:admin_article, @article) do
+  = error_messages_for @article
   = partial :form
   = submit "Update"
   or

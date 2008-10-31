@@ -1,11 +1,10 @@
 - title "Edit Author"
 - menu :users
 
-%h2 edit user
-
-= error_messages_for @user
+%h2 edit author
 
 = form_for @user, :action => url(:admin_user, @user) do
+  = error_messages_for @user
   = partial :form
   = submit "Update"
   or

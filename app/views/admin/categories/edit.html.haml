@@ -3,9 +3,8 @@
 
 %h2 edit category
 
-= error_messages_for @category
-
 = form_for @category, :action => url(:admin_category, @category) do
+  = error_messages_for @category
   = partial :form
   = submit "Update"
   or
