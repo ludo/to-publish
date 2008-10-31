@@ -166,7 +166,6 @@ div.content img.center {
 
 /* inline-left: Displays an image inline with the text, floating the text around the image */
 div.content img.inline-left, div.content img.pushed-left {
-	float: left;
 	margin-right: 1.5em; /* p.line-height * p.font-size */
 }
 
