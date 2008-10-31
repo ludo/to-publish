@@ -7,7 +7,7 @@
   - Category.all(:order => [:title]).each do |category|
     %li
       = link_to category, url(:category, category)
-      == (#{category.articles.count})
+      == (#{category.articles.count(:published_at.lte => Time.now)})
 
 %h2 Browse by date
 %ul
