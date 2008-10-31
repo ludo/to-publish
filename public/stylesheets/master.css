@@ -1,7 +1,7 @@
 /* BODY
  * ========================================================================= */
 body {
-	background: #fff url(/images/bg-body.png) repeat-x top left;
+	background: #fff url(/images/admin/bg-body.png) repeat-x top left;
 	font-family: Helvetica, Arial, sans-serif;
 	margin: 0;
 	padding: 0;
@@ -73,7 +73,7 @@ a:active, a:hover {
 /* Auth
  * ------------------------------------------------------------------------- */
 #auth {
-	background: #444 url(/images/bg-auth.png) repeat-x bottom left;
+	background: #444 url(/images/admin/bg-auth.png) repeat-x bottom left;
 	color: #fff;
 	padding: .2em 0;
 }
