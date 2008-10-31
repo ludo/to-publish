@@ -9,7 +9,7 @@ Merb.push_path(:lib, Merb.root / "lib") # uses **/*.rb as path glob.
 
 use_orm :datamapper
 use_test :rspec
-#use_template_engine :haml
+use_template_engine :haml
 
 Merb::Config.use do |c|
   c[:use_mutex] = false
