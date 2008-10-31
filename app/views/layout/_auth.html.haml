@@ -1,5 +1,5 @@
 - if session.authenticated?
-  %li= link_to "log out", url(:logout)      
-  %li= link_to "website", url(:root)
+  %li= link_to "log out", url(:logout)
+  %li= link_to "show blog", url(:root)
 - else
   %li= link_to "log in", url(:login)

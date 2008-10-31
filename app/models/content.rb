@@ -9,7 +9,10 @@ class Content
   property :body, Text, :nullable => false
   property :created_at, DateTime
   property :updated_at, DateTime
-  
+
+  # === Associations
+  belongs_to :user
+    
   # === Callbacks
   before :valid?, :set_slug
   

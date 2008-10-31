@@ -12,6 +12,7 @@ use_test :rspec
 use_template_engine :haml
 
 Merb::Config.use do |c|
+  c[:name] = 'to-publish' # name of process
   c[:use_mutex] = false
   c[:session_store] = 'datamapper'  # can also be 'memory', 'memcache', 'container', 'datamapper
   

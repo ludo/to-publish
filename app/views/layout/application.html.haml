@@ -5,12 +5,20 @@
     %title 
       = catch_content :for_title
       Cubicphuse
+    = css_include_tag :common
     = css_include_tag :typography
     = css_include_tag :blog
     %script{:type => "text/javascript"}= partial "layout/google_analytics_init", :format => :js
     %script{:type => "text/javascript"}= partial "layout/google_analytics_tracker", :format => :js
     %link{:type => "application/atom+xml", :rel => "alternate", :href => url(:articles, :format => :atom)}
   %body
+    - if session.authenticated?
+      #auth
+        .container
+          %ul
+            %li= link_to "log out", url(:logout)
+            %li= link_to "administration", url(:admin_root)
+          %br.clear
     .section.main
       .section-content
         .content

@@ -4,9 +4,8 @@
 
 %p== Please log in to access your account. Looking for more information? Please visit the #{link_to "publish", "http://github.com/ludo/to-publish/wikis/home", :class => "to publish"} product page.
 
-= error_messages_for session.authentication
-
 = form(:action => slice_url(:merb_auth_slice_password, :perform_login), :method => :put) do
+  = error_messages_for session.authentication
   %dl
     %dt= label "E-mail", :for => "email"
     %dd= text_field :name => "email", :id => "email", :size => 50, :maxlength => 256

@@ -70,36 +70,6 @@ a:active, a:hover {
 	margin: 0 3em;
 }
 
-/* Auth
- * ------------------------------------------------------------------------- */
-#auth {
-	background: #444 url(/images/admin/bg-auth.png) repeat-x bottom left;
-	color: #fff;
-	padding: .2em 0;
-}
-
-#auth ul {
-	font-size: .8em;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-#auth ul li {
-	float: right;
-	margin: 0 0 0 1.5em;
-}
-
-#auth a {
-	background: transparent;
-	border: none;
-	color: #fff;
-}
-
-#auth a:hover, #auth a:active {
-	text-decoration: underline;
-}
-
 /* Header
  * ------------------------------------------------------------------------- */
 #header h1 {

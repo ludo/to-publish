@@ -32,7 +32,7 @@ module Admin
   
     # POST /admin/pages
     def create(page)
-      @page = Page.new(page)
+      @page = Page.new(page.merge(:user_id => session.user.id))
       if @page.save
         redirect url(:admin_pages), :message => {:notice => "Page was successfully created"}
       else

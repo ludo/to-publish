@@ -1,2 +1,2 @@
-%dt.new.article== Published article #{link_to_content(article)} 
-%dd= article.published_at.strftime("%B #{article.published_at.day.ordinalize}, %Y")
+%dt.new.article== #{link_to(article.user, url(:admin_user, article.user))} published #{link_to_content(article)} 
+%dd= article.published_at.strftime("%B #{article.published_at.day.ordinalize}, %Y %H:%M")

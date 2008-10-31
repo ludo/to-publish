@@ -32,7 +32,7 @@ module Admin
   
     # POST /admin/articles
     def create(article)
-      @article = Article.new(article)
+      @article = Article.new(article.merge(:user_id => session.user.id))
       @article.categories = Category.all(:id.in => params[:category_ids])
       if @article.save
         redirect url(:admin_articles), :message => {:notice => "Article was successfully created"}

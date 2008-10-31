@@ -19,6 +19,9 @@ class User
   property :created_at, DateTime
   property :updated_at, DateTime
 
+  # === Associations
+  has n, :contents
+  
   # === Instance methods
   
   # Return the login when stringified

@@ -1,5 +1,6 @@
 class Article < Content
   # === Properties
+  # TODO property :comments_expire_on, Date
   property :published_at, DateTime
 
   # === Associations
