@@ -1,7 +1,9 @@
 %dl
   %dt.required= label "E-mail", :id => "user_email"
-  %dd.major= text_field :email, :maxlength => 256, :size => 50
+  %dd.major= text_field :email, :maxlength => 50, :size => 50
+  %dt.required= label "Name", :id => "user_name"
+  %dd= text_field :name, :maxlength => 32, :size => 50
   %dt.required= label "Password", :id => "user_password"
-  %dd= password_field :password, :maxlength => 256, :size => 50
+  %dd= password_field :password, :maxlength => 50, :size => 50
   %dt.required= label "Password Confirmation", :id => "user_password_confirmation"
-  %dd= password_field :password_confirmation, :maxlength => 256, :size => 50
+  %dd= password_field :password_confirmation, :maxlength => 50, :size => 50

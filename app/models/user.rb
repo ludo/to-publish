@@ -13,7 +13,8 @@ class User
   
   # === Properties
   property :id, Serial
-  property :email, String, :nullable => false, :unique => true
+  property :email, String, :nullable => false, :unique => true # Used to login
+  property :name, String, :nullable => false, :unique => true, :length => 32
   property :crypted_password, String
   property :salt, String
   property :created_at, DateTime
