@@ -24,4 +24,4 @@ dependency "dm-validations", dm_gems_version
 
 dependency "merb-builder", "0.9.8"
 
-dependency "RedCloth", "> 4.0"
+dependency "RedCloth", "> 4"

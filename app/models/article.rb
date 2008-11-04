@@ -30,7 +30,7 @@ class Article < Content
   # --
   # @api public
   def comments_allowed?
-    published_at > Date.today - 30 ? true : false
+    published_at > Date.today - 60 ? true : false
   end
   
   # Extract an excerpt from the body
