@@ -1,0 +1,13 @@
+- = Not implemented yet
+* = Work in progress
++ = Implemented
+
+= HEAD
+
+- Allow author to choose whether comments may be approved automatically
+- Allow author to approve/disapprove comments
+- Allow author to specify the period in which comments on an article are allowed
+- Add comments_expire Date attribute to Article
+- Make /admin/login view use admin layout
+- Filter passwords from log file
++ Display user.name instead of user.email in back-end

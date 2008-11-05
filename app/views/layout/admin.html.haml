@@ -19,7 +19,7 @@
     .container
       #header
         - if session.authenticated?
-          #user.right= session.user.email
+          #user.right= session.user.name
           = image_tag gravatar(session.user.email), :class => "right avatar"
         %h1
           to

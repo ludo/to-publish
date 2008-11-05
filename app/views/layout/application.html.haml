@@ -10,7 +10,8 @@
     = css_include_tag :blog
     %script{:type => "text/javascript"}= partial "layout/google_analytics_init", :format => :js
     %script{:type => "text/javascript"}= partial "layout/google_analytics_tracker", :format => :js
-    %link{:type => "application/atom+xml", :rel => "alternate", :href => url(:articles, :format => :atom)}
+    - if thrown_content?(:feed)
+      %link{:type => "application/atom+xml", :rel => "alternate", :href => catch_content(:feed)}
   %body
     - if session.authenticated?
       #auth
@@ -32,9 +33,9 @@
             %li= link_to 'Projects', '/projects'
             %li= link_to 'About', '/about'
             %li= link_to 'Archive', url(:archive_articles)
-            %li= link_to image_tag('feed-icon-14x14.png', :width => 14, :height => 14, :alt => 'Feed'), url(:articles, :format => :atom), :class => "img-link"
+            %li= link_to image_tag('feed-icon-14x14.png', :width => 14, :height => 14, :alt => 'Articles Feed'), url(:articles, :format => :atom), :class => "img-link", :title => "Articles Feed"
         %br.clear
-    - if catch_content(:for_sub).size > 0
+    - if thrown_content?(:for_sub)
       .section.sub
         .section-content
           .content= catch_content :for_sub

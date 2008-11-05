@@ -1,6 +1,20 @@
 module Merb
   module GlobalHelpers
     
+    # Add an alternate feed url to a page
+    #
+    # ==== Parameters
+    # url<String>:: Location where feed can be found
+    #
+    # ==== Returns
+    # String:: Alternate link to feed for use in head of page
+    #
+    # -
+    # @api public
+    def feed(url)
+      throw_content :feed, url
+    end
+    
     # Display a Gravatar avatar
     #
     # TODO Allow options, like different sizes
