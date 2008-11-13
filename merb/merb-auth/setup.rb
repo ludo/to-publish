@@ -8,7 +8,7 @@ Merb::Plugins.config[:"merb-auth"][:login_param] = :email
 # Merb::Plugins.config[:"merb-auth"][:password_param] = :my_password_field_name
 
 begin
-  # Sets the default class of authentication.  This is primarily used for 
+  # Sets the default class for authentication.  This is primarily used for 
   # Plugins and the default strategies
   Merb::Authentication.user_class = User 
   
@@ -27,6 +27,7 @@ begin
       user.nil? ? user : user.id
     end
   end
+  
 rescue
   Merb.logger.error <<-TEXT
   
