@@ -17,3 +17,5 @@
     = label "Publish at", :id => "article_published_at"
     .hint Enter a date and time formatted as 'dd-mm-yyyy HH:MM'. Leave this empty to save the page as a draft.
   %dd= text_field :published_at, :value => @article.published_at.kind_of?(DateTime) ? @article.published_at.strftime("%d-%m-%Y %H:%M") : nil, :maxlength => 16, :size => 16
+  %dt= label "Set comment expiration", :id => "article_comments_expire_after"
+  %dd= select :comments_expire_after, :collection => [[30, "After one month"], [0, "Immediately"]]

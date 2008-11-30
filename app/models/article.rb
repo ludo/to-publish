@@ -1,6 +1,6 @@
 class Article < Content
   # === Properties
-  # TODO property :comments_expire_on, Date
+  property :comments_expire_on, Date
   property :published_at, DateTime
 
   # === Associations
@@ -31,6 +31,14 @@ class Article < Content
   # @api public
   def comments_allowed?
     published_at > Date.today - 60 ? true : false
+  end
+  
+  def comments_expire_after
+    comments_expire_on - published_at if published_at
+  end
+  
+  def comments_expire_after=(value)
+    attribute_set(:comments_expire_on, published_at + value.to_i) if published_at
   end
   
   # Extract an excerpt from the body

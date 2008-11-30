@@ -122,29 +122,53 @@ describe Article do
   describe "with comments" do
     describe "enabled" do
       before(:each) do
-        @article = Article.new(@valid_attributes.merge(:published_at => Date.today))
+        @article = Article.new(@valid_attributes.merge(:published_at => Date.today, :comments_expire_on => Date.today + 30))
       end
     
       it "should allow comments" do
         @article.comments_allowed?.should == true
       end
     
-      it "should be published no longer than 30 days ago" do
+      it "should be published no longer than 1 month ago" do
         @article.published_at.should > Date.today - 30
       end
     end
 
     describe "disabled" do
       before(:each) do
-        @article = Article.new(@valid_attributes.merge(:published_at => Date.today - 40.days))
+        @article = Article.new(@valid_attributes.merge(:published_at => Date.today - 60, :comments_expire_on => Date.today - 30))
       end
 
       it "should not allow comments" do
         @article.comments_allowed?.should == false
       end
     
-      it "should have been published more than 30 days ago" do
+      it "should have been published more than 1 month ago" do
         @article.published_at.should < Date.today - 30
+      end
+    end
+    
+    describe "expiration" do
+      before(:each) do
+        @article = Article.new(@valid_attributes.merge(:published_at => Date.today))
+      end
+
+      it "should be published" do
+        @article.published_at.should_not == nil
+      end
+
+      it "should expire comments after one month" do
+        @article.comments_expire_after = 30
+        @article.comments_expire_on.should == @article.published_at + 30
+      end
+      
+      it "should not be set when article is not published" do
+        @article.published_at = nil
+        
+        @article.comments_expire_on.should == nil
+        @article.comments_expire_after = 30
+        @article.comments_expire_on.should == nil
+        @article.comments_expire_after.should == nil
       end
     end
   end
