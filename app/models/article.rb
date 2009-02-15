@@ -34,7 +34,7 @@ class Article < Content
   end
   
   def comments_expire_after
-    comments_expire_on - published_at if published_at
+    (published_at && comments_expire_on) ? comments_expire_on - published_at : 30.days 
   end
   
   def comments_expire_after=(value)
