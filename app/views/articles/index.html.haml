@@ -5,6 +5,6 @@
 
 - throw_content :for_sub do
   %h1 Recent Articles
-  - @articles.group_by { |article| article.published_at.strftime('%Y-%m') }.sort.reverse.each do |month, articles|
-    %h2= Time.parse(month).strftime('%B %Y')
-    %ul.articles= partial :list, :with => articles
+  - @articles.group_by { |article| article.published_at.strftime('%Y-%m') }.sort.reverse.each do |group|
+    %h2= Time.parse("#{group[0]}-01").strftime('%B %Y')
+    %ul.articles= partial :list, :with => group[1]
