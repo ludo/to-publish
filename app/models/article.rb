@@ -30,11 +30,11 @@ class Article < Content
   # --
   # @api public
   def comments_allowed?
-    published_at > Date.today - 60 ? true : false
+    published_at > Date.today - comments_expire_after ? true : false
   end
   
   def comments_expire_after
-    (published_at && comments_expire_on) ? comments_expire_on - published_at : 30.days 
+    (published_at && comments_expire_on) ? comments_expire_on - published_at : 30
   end
   
   def comments_expire_after=(value)
