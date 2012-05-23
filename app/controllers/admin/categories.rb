@@ -41,8 +41,8 @@ module Admin
     end
   
     # PUT /admin/categories/:id
-    def update(category)
-      @category = Category.get(params[:id])
+    def update(id, category)
+      @category = Category.get(id)
       raise NotFound unless @category
       if @category.update_attributes(category)
         redirect url(:admin_categories), :message => {:notice => "Category was successfully updated"}

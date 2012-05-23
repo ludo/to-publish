@@ -36,8 +36,8 @@ module Admin
       end
     end
   
-    def update(user)
-      @user = User.get(params[:id])
+    def update(id, user)
+      @user = User.get(id)
       raise NotFound unless @user
       if @user.update_attributes(user)
         redirect url(:admin_users), :message => {:notice => "User was successfully updated"}

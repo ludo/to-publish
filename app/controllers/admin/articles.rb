@@ -42,8 +42,8 @@ module Admin
     end
   
     # PUT /admin/articles/:id
-    def update(article)
-      @article = Article.get(params[:id])
+    def update(id, article)
+      @article = Article.get(id)
       raise NotFound unless @article
       
       # TODO Find a prettier/less db intensive way of doing this

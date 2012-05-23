@@ -41,8 +41,8 @@ module Admin
     end
   
     # PUT /admin/pages/:id
-    def update(page)
-      @page = Page.get(params[:id])
+    def update(id, page)
+      @page = Page.get(id)
       raise NotFound unless @page
       if @page.update_attributes(page)
         redirect url(:admin_pages), :message => {:notice => "Page was successfully updated"}
